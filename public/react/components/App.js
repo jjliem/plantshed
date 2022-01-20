@@ -8,6 +8,7 @@ import Home from "./Home";
 import SingleItemContainer from "./SingleItemContainer";
 import PaymentForm from "./PaymentForm";
 import { FavoritesContainer } from "./FavoritesContainer";
+import Login from "./Login";
 
 export const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -46,9 +47,10 @@ export const App = () => {
   const onFav = (product) => {
     const exist = favItems.find((x) => x.id === product.id);
     if (exist) {
-      setFavItems([...favItems]);
+      alert(`Item already favorited!`);
     } else {
       setFavItems([...favItems, { ...product }]);
+      alert(`Item favorited!`);
     }
   };
 
@@ -118,6 +120,9 @@ export const App = () => {
         </Route>
         <Route path="/cart">
           <Cart cartItems={cartItems} onAdd={onAdd} onRemove={onRemove}></Cart>
+        </Route>
+        <Route path="/login">
+          <Login></Login>
         </Route>
         <Route path="/">
           <Home></Home>

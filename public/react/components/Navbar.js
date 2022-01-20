@@ -33,7 +33,7 @@ export default function Navbar(props) {
       </section>
       <section className="navbar-right" aria-label="cart tab">
         <h3 className="nav-item">
-          <Link to="/about">Log In</Link>
+          <Link to="/login">Log In</Link>
         </h3>
         <h2 className="nav-item">
           <CartSideBar
