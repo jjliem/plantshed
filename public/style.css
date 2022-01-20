@@ -80,7 +80,7 @@ body {
 
 .banner-img {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-  background-image: url("./react/components/assets/banner.jpg");
+  background-image: url("https://plantshed-mod3.s3.amazonaws.com/assets/banner.jpg");
   /* Set a specific height */
   height: 30vh;
   width: 100vw;

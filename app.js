@@ -1,11 +1,9 @@
-const express = require('express');
+const express = require("express");
 
-const {sequelize} = require('./db');
-const {Product} = require('./models/index');
+const { sequelize } = require("./db");
+const { Product } = require("./models/index");
 
-
-
-const seed = require('./seed')
+const seed = require("./seed");
 
 const PORT = process.env.PORT || 3000;
 
@@ -13,30 +11,26 @@ const app = express();
 
 //Allow CORS requests
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
+  res.header("Access-Control-Allow-Origin", "*");
   next();
 });
 
-
-// serve static assets from the public/ folder
-app.use(express.static('public'));
-
-
+// serve static assets from the dist/ folder
+app.use(express.static("dist"));
 
 seed();
 
-app.get('/products', async (req, res) => {
-    const products= await Product.findAll()
-    res.json(products)
-})
+app.get("/products", async (req, res) => {
+  const products = await Product.findAll();
+  res.json(products);
+});
 
-app.get('/products/:id', async (req, res) => {
-    const product = await Product.findByPk(req.params.id)
-    res.json({product})
-})
-
+app.get("/products/:id", async (req, res) => {
+  const product = await Product.findByPk(req.params.id);
+  res.json({ product });
+});
 
 app.listen(PORT, () => {
-    sequelize.sync({force: true});
-    console.log(`Your server is running on http://localhost:${PORT}`);
-})
+  sequelize.sync({ force: true });
+  console.log(`Your server is running on http://localhost:${PORT}`);
+});

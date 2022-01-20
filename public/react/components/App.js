@@ -56,7 +56,7 @@ export const App = () => {
 
   async function fetchProducts() {
     try {
-      const response = await fetch("http://localhost:3000/products");
+      const response = await fetch("/products");
       const responseJSON = await response.json();
       console.log(responseJSON);
       let tempPlant = [];
