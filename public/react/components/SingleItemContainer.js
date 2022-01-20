@@ -16,7 +16,7 @@ export default function SingleItemContainer(props) {
 
     async function fetchSingleProduct(id) {
         try {
-        const response = await fetch(`http://localhost:3000/products/${id}`);
+        const response = await fetch(`/products/${id}`);
         const responseJSON = await response.json();
         console.log (responseJSON.product);
     
